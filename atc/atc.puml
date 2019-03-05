@@ -3,13 +3,13 @@
 ' ATC primary elements colour
 ' ##################################
 
-' System
-!define SYSTEM_BG_COLOUR RoyalBlue
-!define SYSTEM_BD_COLOUR DarkSlateGray
+' Waypoint
+!define WAYPOINT_BG_COLOUR RoyalBlue
+!define WAYPOINT_BD_COLOUR DarkSlateGray
 
-' External System
-!define EXTERNAL_SYSTEM_BG_COLOUR SlateGray
-!define EXTERNAL_SYSTEM_BD_COLOUR DimGray
+' External Waypoint
+!define EXTERNAL_WAYPOINT_BG_COLOUR SlateGray
+!define EXTERNAL_WAYPOINT_BD_COLOUR DimGray
 
 ' Database
 !define DATABASE_BG_COLOUR LightSteelBlue
@@ -18,18 +18,18 @@
 ' ATC primary elements styling
 ' ##################################
 
-skinparam rectangle<<system>> {
+skinparam rectangle<<waypoint>> {
     StereotypeFontColor ELEMENT_FONT_COLOUR
     FontColor ELEMENT_FONT_COLOUR
-    BackgroundColor SYSTEM_BG_COLOUR
-    BorderColor SYSTEM_BD_COLOUR
+    BackgroundColor WAYPOINT_BG_COLOUR
+    BorderColor WAYPOINT_BD_COLOUR
 }
 
-skinparam rectangle<<system_external>> {
+skinparam rectangle<<waypoint_external>> {
     StereotypeFontColor ELEMENT_FONT_COLOUR
     FontColor ELEMENT_FONT_COLOUR
-    BackgroundColor EXTERNAL_SYSTEM_BG_COLOUR
-    BorderColor EXTERNAL_SYSTEM_BD_COLOUR
+    BackgroundColor EXTERNAL_WAYPOINT_BG_COLOUR
+    BorderColor EXTERNAL_WAYPOINT_BD_COLOUR
 }
 
 skinparam database<<database>> {
@@ -43,14 +43,14 @@ skinparam database<<database>> {
 ' ##################################
 
 ' System
-!define system(x, label) rectangle "==label" <<system>> as x
-!define system(x, label, text) rectangle "==label\n\n text" <<system>> as x
-!define system(x, label, text, desc) rectangle "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<system>> as x
+!define waypoint(x, label) rectangle "==label" <<waypoint>> as x
+!define waypoint(x, label, text) rectangle "==label\n\n text" <<waypoint>> as x
+!define waypoint(x, label, text, desc) rectangle "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<waypoint>> as x
 
 ' System
-!define system_external(x, label) rectangle "==label" <<system_external>> as x
-!define system_external(x, label, text) rectangle "==label\n\n text" <<system_external>> as x
-!define system_external(x, label, text, desc) rectangle "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<system_external>> as x
+!define waypoint_external(x, label) rectangle "==label" <<waypoint_external>> as x
+!define waypoint_external(x, label, text) rectangle "==label\n\n text" <<waypoint_external>> as x
+!define waypoint_external(x, label, text, desc) rectangle "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<waypoint_external>> as x
 
 ' Database
 !define database(x, label) database "==label" <<database>> as x
@@ -60,21 +60,21 @@ skinparam database<<database>> {
 
 ' PLSQL adoptation
 ' ##################################
-'system element
-!definelong plsql_system_gp(gp_id, gp_title, system_id, system_label)
-Group(gp_id, gp_title){
-    system(system_id, system_label)
+'Waypoint element
+!definelong plsql_system_gp(system_id, system_title, waypoint_id, waypoint_label)
+System(system_id, system_title){
+    waypoint(waypoint_id, waypoint_label)
 }
 !enddefinelong
 
-!definelong plsql_system_gp(gp_id, gp_title, system_id, system_label, system_text)
-Group(gp_id, gp_title){
-    system(system_id, system_label, system_text)
+!definelong plsql_system_gp(system_id, system_title, waypoint_id, waypoint_label, waypoint_text)
+System(system_id, system_title){
+    waypoint(waypoint_id, waypoint_label, waypoint_text)
 }
 !enddefinelong
 
-!definelong plsql_system_gp(gp_id, gp_title, system_id, system_label, system_text, system_desc)
-Group(gp_id, gp_title){
-    system(system_id, system_label, system_text, system_desc)
+!definelong plsql_system_gp(system_id, system_title, waypoint_id, waypoint_label, waypoint_text, waypoint_desc)
+System(system_id, system_title){
+    waypoint(waypoint_id, waypoint_label, waypoint_text, waypoint_desc)
 }
 !enddefinelong

@@ -52,7 +52,7 @@ skinparam Arrow {
     FontSize 12
 }
 
-skinparam rectangle<<group>> {
+skinparam rectangle<<system>> {
     Shadowing false
     StereotypeFontSize 0
     FontColor DarkSlateGray
@@ -62,7 +62,7 @@ skinparam rectangle<<group>> {
 
 ' Grouping
 ' ##################################
-!define Group(name, title) rectangle "**title**" <<group>> as name
+!define System(name, title) rectangle "**title**" <<system>> as name
 
 ' Legend and stereotype
 ' ##################################
