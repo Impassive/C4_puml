@@ -1,0 +1,173 @@
+'C4 PlantUml, version 0.0.1
+'https://github.com/Impassive/C4_puml.git
+
+' Element font colour
+' ##################################
+
+!define ELEMENT_FONT_COLOUR White
+
+' Relationship description
+' ##################################
+!define DESC_FONT_SIZE 12
+
+' Elements styling
+' ##################################
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam Diamond {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam usecase {
+    StereotypeFontSize 12
+    shadowing false
+    FontColor DarkSlateGray
+    BorderColor DarkSlateGray
+    BackgroundColor LightBlue
+}
+
+skinparam Activity {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color Black
+    FontColor SlateGray
+    FontSize 12
+}
+
+skinparam rectangle<<group>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor DarkSlateGray
+    BorderColor DarkSlateGray
+    BorderStyle dashed
+}
+
+' Grouping
+' ##################################
+!define Group(name, title) rectangle "**title**" <<group>> as name
+
+' Legend and stereotype
+' ##################################
+!definelong STEREOTYPE_HIDE
+hide stereotype
+!enddefinelong
+
+!definelong LEGEND_SHOW
+legend right
+|=              |= Type |
+|<PERSON_BG_COLOR>      | person |
+|<EXTERNAL_PERSON_BG_COLOR>      | external person |
+|<SYSTEM_BG_COLOR>   | system |
+|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
+endlegend
+!enddefinelong
+
+!definelong SKETCH
+skinparam handwritten true
+skinparam backgroundColor White
+skinparam defaultFontName "Caveat"
+' center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
+!enddefinelong
+
+' Layout direction
+' ##################################
+!define TD top to bottom direction
+!define TB top to bottom direction
+!define LR left to right direction
+!define DT bottom to top direction
+!define BT bottom to top direction
+!define RL right to left direction
+
+' Arrow type
+' ##################################
+!definelong ORTHO
+skinparam linetype ortho
+!enddefinelong
+
+' Relationship
+' ##################################
+
+!define Rel_(x, y, text, direction="") x direction y : " **text**"
+!define Rel_(x, y, text, desc, direction="") x direction y : " **text**\n//<size:DESC_FONT_SIZE>[desc]</size>//"
+
+!define Rel(from,to, text) Rel_(from,to, text, "-->")
+!define Rel(from,to, text, desc) Rel_(from,to, text, desc, "-->")
+
+!define Rel_Back(to, from, text) Rel_(to, from, text, "<--")
+!define Rel_Back(to, from, text, desc) Rel_(to, from, text, desc, "<--")
+
+!define Rel_Neighbor(from,to, text) Rel_(from,to, text, "->")
+!define Rel_Neighbor(from,to, text, desc) Rel_(from,to, text, desc, "->")
+
+!define Rel_Back_Neighbor(to, from, text) Rel_(to, from, text, "<-")
+!define Rel_Back_Neighbor(to, from, text, desc) Rel_(to, from, text, desc, "<-")
+
+!define Rel_D(from,to, text) Rel_(from,to, text, "-DOWN->")
+!define Rel_D(from,to, text, desc) Rel_(from,to, text, desc, "-DOWN->")
+!define Rel_Down(from,to, text) Rel_D(from,to, text)
+!define Rel_Down(from,to, text, desc) Rel_D(from,to, text, desc)
+
+!define Rel_U(from,to, text) Rel_(from,to, text, "-UP->")
+!define Rel_U(from,to, text, desc) Rel_(from,to, text, desc, "-UP->")
+!define Rel_Up(from,to, text) Rel_U(from,to, text)
+!define Rel_Up(from,to, text, desc) Rel_U(from,to, text, desc)
+
+!define Rel_L(from,to, text) Rel_(from,to, text, "-LEFT->")
+!define Rel_L(from,to, text, desc) Rel_(from,to, text, desc, "-LEFT->")
+!define Rel_Left(from,to, text) Rel_L(from,to, text)
+!define Rel_Left(from,to, text, desc) Rel_L(from,to, text, desc)
+
+!define Rel_R(from,to, text) Rel_(from,to, text, "-RIGHT->")
+!define Rel_R(from,to, text, desc) Rel_(from,to, text, desc, "-RIGHT->")
+!define Rel_Right(from,to, text) Rel_R(from,to, text)
+!define Rel_Right(from,to, text, desc) Rel_R(from,to, text, desc)
+
+' Layout Helpers
+' ##################################
+
+!define Lay_D(from, to) from -[hidden]D- to
+!define Lay_U(from, to) from -[hidden]U- to
+!define Lay_R(from, to) from -[hidden]R- to
+!define Lay_L(from, to) from -[hidden]L- to
+
+' If imitation
+' ##################################
+!definelong ifRel2(root,x,y,label1=" ",label2=" ") 
+usecase "X" as ifrec
+Rel_(root,ifrec," ", "-->")
+Rel_(ifrec,x,label1, "-->")
+Rel_(ifrec,y,label2, "-->")
+!enddefinelong
+!definelong ifRel3(root,x,y,z,label1=" ",label2=" ",label3=" ") 
+usecase "X" as ifrec
+Rel_(root,ifrec," ", "-->")
+Rel_(ifrec,x,label1, "-->")
+Rel_(ifrec,y,label2, "-->")
+Rel_(ifrec,z,label3, "-->")
+!enddefinelong
+!definelong ifRel4(root,x,y,z,w,label1=" ",label2=" ",label3=" ",label4=" ") 
+usecase "X" as ifrec
+Rel_(root,ifrec," ", "-->")
+Rel_(ifrec,x,label1, "-->")
+Rel_(ifrec,y,label2, "-->")
+Rel_(ifrec,z,label3, "-->")
+Rel_(ifrec,w,label4, "-->")
+!enddefinelong

@@ -1,0 +1,58 @@
+!include ../core/core.puml
+
+' ATC primary elements colour
+' ##################################
+
+' System
+!define SYSTEM_BG_COLOUR RoyalBlue
+!define SYSTEM_BD_COLOUR DarkSlateGray
+
+' External System
+!define EXTERNAL_SYSTEM_BG_COLOUR SlateGray
+!define EXTERNAL_SYSTEM_BD_COLOUR DimGray
+
+' Database
+!define DATABASE_BG_COLOUR LightSteelBlue
+!define DATABASE_BD_COLOUR DarkSlateGray
+
+' ATC primary elements styling
+' ##################################
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOUR
+    FontColor ELEMENT_FONT_COLOUR
+    BackgroundColor SYSTEM_BG_COLOUR
+    BorderColor SYSTEM_BD_COLOUR
+}
+
+skinparam rectangle<<system_external>> {
+    StereotypeFontColor ELEMENT_FONT_COLOUR
+    FontColor ELEMENT_FONT_COLOUR
+    BackgroundColor EXTERNAL_SYSTEM_BG_COLOUR
+    BorderColor EXTERNAL_SYSTEM_BD_COLOUR
+}
+
+skinparam database<<database>> {
+    StereotypeFontColor ELEMENT_FONT_COLOUR
+    FontColor ELEMENT_FONT_COLOUR
+    BackgroundColor DATABASE_BG_COLOUR
+    BorderColor DATABASE_BD_COLOUR
+}
+
+' ATC primary elements
+' ##################################
+
+' System
+!define system(x, label) rectangle "==label" <<system>> as x
+!define system(x, label, text) rectangle "==label\n\n text" <<system>> as x
+!define system(x, label, text, desc) rectangle "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<system>> as x
+
+' System
+!define system_external(x, label) rectangle "==label" <<system_external>> as x
+!define system_external(x, label, text) rectangle "==label\n\n text" <<system_external>> as x
+!define system_external(x, label, text, desc) rectangle "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<system_external>> as x
+
+' Database
+!define database(x, label) database "==label" <<database>> as x
+!define database(x, label, text) database "==label\n\n text" <<database>> as x
+!define database(x, label, text, desc) database "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<database>> as x

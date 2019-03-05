@@ -1,0 +1,11 @@
+@startuml
+!include atc/atc.puml
+'ORTHO
+STEREOTYPE_HIDE
+    system(c1, system,text,desc)
+    system(c2, system,text,desc)
+    system(c3, system,text,desc)
+    system(c4, system,text,desc)
+    system(c5, system,text,desc)
+ifRel3(c1,c2,c3,c4)
+@enduml
