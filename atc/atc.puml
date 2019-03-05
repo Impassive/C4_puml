@@ -66,3 +66,15 @@ Group(gp_id, gp_title){
     system(system_id, system_label)
 }
 !enddefinelong
+
+!definelong plsql_system_gp(gp_id, gp_title, system_id, system_label, system_text)
+Group(gp_id, gp_title){
+    system(system_id, system_label, system_text)
+}
+!enddefinelong
+
+!definelong plsql_system_gp(gp_id, gp_title, system_id, system_label, system_text, system_desc)
+Group(gp_id, gp_title){
+    system(system_id, system_label, system_text, system_desc)
+}
+!enddefinelong
