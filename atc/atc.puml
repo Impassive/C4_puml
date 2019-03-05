@@ -1,4 +1,4 @@
-!include ../core/core.puml
+!includeurl https://raw.githubusercontent.com/Impassive/C4_puml/master/core/core.puml
 
 ' ATC primary elements colour
 ' ##################################
