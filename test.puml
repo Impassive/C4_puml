@@ -1,20 +1,23 @@
 @startuml
-!includeurl https://raw.githubusercontent.com/Impassive/C4_puml/master/atc/atc.puml
-'ORTHO
+'!includeurl https://raw.githubusercontent.com/Impassive/C4_puml/master/atc/atc.puml
+!include atc/atc.puml
 TD
 STEREOTYPE_HIDE
-ARROW_COLOUR Green
-Group(g1, "group title") {
-    system(c1, system1,text,desc)
-    system(c2, system2,text,desc)
-    system(c3, system3,text,desc)
-    system(c4, system4,text,desc)
-    system(c5, system5,text,desc)
-    system(c6, system6,text,desc)
-    ifRel2(u1,c1,c2,c3)
-    ifClose2(u2,c2,c3)
-}
+plsql_system_gp(1s,Oracle Retail Price Management,1w,RPO file provided for processing)
+plsql_system_gp(1s,Oracle Retail Price Management,2w,RPO Price change data validated)
+plsql_system_gp(1s,Oracle Retail Price Management,2w,RPO Price change data validated)
+plsql_system_gp(1s,Oracle Retail Price Management,3w,Price change created in RPM)
+plsql_system_gp(1s,Oracle Retail Price Management,4w,Price change Approved in RPM)
+plsql_system_gp(2s,Oracle Retail Integration Bus,5w,Price change event is sent to RIB)
+plsql_system_gp(3s,Operational Data Storage,6w,New price on zone level saved to ODS table)
+plsql_system_gp(4s,Web sales platform,7w,New price saved to ATG table)
 
-' ifRel2(u3,c4,c5,c6)
-
+Rel(1w,2w,Expected:10  Maximum:3600)
+Rel(2w,3w,Expected:10  Maximum:3600)
+Rel(3w,4w,Expected:10  Maximum:3600)
+Rel(4w,5w,Expected:10  Maximum:3600)
+Rel(5w,6w,Expected:10  Maximum:3600)
+Rel(5w,7w,Expected:10  Maximum:3600)
+Rel(6w,8w,Expected:  Maximum:)
+Rel(7w,8w,Expected:  Maximum:)
 @enduml
