@@ -150,24 +150,59 @@ skinparam linetype ortho
 
 ' If imitation
 ' ##################################
-!definelong ifRel2(root,x,y,label1=" ",label2=" ") 
-usecase "X" as ifrec
-Rel_(root,ifrec," ", "-->")
-Rel_(ifrec,x,label1, "-->")
-Rel_(ifrec,y,label2, "-->")
+!definelong ifRel2(name,root,x,y,label1=" ",label2=" ") 
+usecase "X" as name
+Rel_(root,name," ", "-->")
+Rel_(name,x,label1, "-->")
+Rel_(name,y,label2, "-->")
 !enddefinelong
-!definelong ifRel3(root,x,y,z,label1=" ",label2=" ",label3=" ") 
-usecase "X" as ifrec
-Rel_(root,ifrec," ", "-->")
-Rel_(ifrec,x,label1, "-->")
-Rel_(ifrec,y,label2, "-->")
-Rel_(ifrec,z,label3, "-->")
+!definelong ifRel3(name,root,x,y,z,label1=" ",label2=" ",label3=" ") 
+usecase "X" as name
+Rel_(root,name," ", "-->")
+Rel_(name,x,label1, "-->")
+Rel_(name,y,label2, "-->")
+Rel_(name,z,label3, "-->")
 !enddefinelong
-!definelong ifRel4(root,x,y,z,w,label1=" ",label2=" ",label3=" ",label4=" ") 
-usecase "X" as ifrec
-Rel_(root,ifrec," ", "-->")
-Rel_(ifrec,x,label1, "-->")
-Rel_(ifrec,y,label2, "-->")
-Rel_(ifrec,z,label3, "-->")
-Rel_(ifrec,w,label4, "-->")
+!definelong ifRel4(name,root,x,y,z,w,label1=" ",label2=" ",label3=" ",label4=" ") 
+usecase "X" as name
+Rel_(root,name," ", "-->")
+Rel_(name,x,label1, "-->")
+Rel_(name,y,label2, "-->")
+Rel_(name,z,label3, "-->")
+Rel_(name,w,label4, "-->")
+!enddefinelong
+
+!definelong ifClose2(name,x,y,label1=" ",label2=" ") 
+usecase "X" as name
+Rel_(x,name,label1, "-->")
+Rel_(y,name,label2, "-->")
+!enddefinelong
+!definelong ifClose3(name,x,y,z,label1=" ",label2=" ",label3=" ") 
+usecase "X" as name
+Rel_(x,name,label1, "-->")
+Rel_(y,name,label2, "-->")
+Rel_(z,name,label3, "-->")
+!enddefinelong
+!definelong ifClose4(name,x,y,z,w,label1=" ",label2=" ",label3=" ",label4=" ") 
+usecase "X" as name
+Rel_(x,name,label1, "-->")
+Rel_(y,name,label2, "-->")
+Rel_(z,name,label3, "-->")
+Rel_(w,name,label4, "-->")
+!enddefinelong
+
+!definelong ifClose2to(name,x,y,label1=" ",label2=" ") 
+Rel_(x,name,label1, "-->")
+Rel_(y,name,label2, "-->")
+!enddefinelong
+!definelong ifClose3to(name,x,y,z,label1=" ",label2=" ",label3=" ") 
+Rel_(x,name,label1, "-->")
+Rel_(y,name,label2, "-->")
+Rel_(z,name,label3, "-->")
+!enddefinelong
+!definelong ifClose4to(name,x,y,z,w,label1=" ",label2=" ",label3=" ",label4=" ") 
+Rel_(x,name,label1, "-->")
+Rel_(y,name,label2, "-->")
+Rel_(z,name,label3, "-->")
+Rel_(w,name,label4, "-->")
 !enddefinelong
