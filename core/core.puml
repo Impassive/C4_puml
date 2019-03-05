@@ -105,48 +105,65 @@ skinparam linetype ortho
 ' Relationship
 ' ##################################
 
-!define Rel_(x, y, text, direction="") x direction y : " **text**"
+!define Rel_(x, y, direction) x direction y
+!define Rel_(x, y, text="", direction="") x direction y : " **text**"
 !define Rel_(x, y, text, desc, direction="") x direction y : " **text**\n//<size:DESC_FONT_SIZE>[desc]</size>//"
 
+!define Rel(from,to) Rel_(from,to, "-->")
 !define Rel(from,to, text) Rel_(from,to, text, "-->")
 !define Rel(from,to, text, desc) Rel_(from,to, text, desc, "-->")
 
+!define Rel_Back(to, from) Rel_(to, from, "<--")
 !define Rel_Back(to, from, text) Rel_(to, from, text, "<--")
 !define Rel_Back(to, from, text, desc) Rel_(to, from, text, desc, "<--")
 
+!define Rel_Neighbor(from,to) Rel_(from,to, "->")
 !define Rel_Neighbor(from,to, text) Rel_(from,to, text, "->")
 !define Rel_Neighbor(from,to, text, desc) Rel_(from,to, text, desc, "->")
 
+!define Rel_Back_Neighbor(to, from) Rel_(to, from, "<-")
 !define Rel_Back_Neighbor(to, from, text) Rel_(to, from, text, "<-")
 !define Rel_Back_Neighbor(to, from, text, desc) Rel_(to, from, text, desc, "<-")
 
+!define Rel_D(from,to) Rel_(from,to, "-DOWN->")
 !define Rel_D(from,to, text) Rel_(from,to, text, "-DOWN->")
 !define Rel_D(from,to, text, desc) Rel_(from,to, text, desc, "-DOWN->")
+
+!define Rel_Down(from,to) Rel_D(from,to)
 !define Rel_Down(from,to, text) Rel_D(from,to, text)
 !define Rel_Down(from,to, text, desc) Rel_D(from,to, text, desc)
 
+!define Rel_U(from,to) Rel_(from,to, "-UP->")
 !define Rel_U(from,to, text) Rel_(from,to, text, "-UP->")
 !define Rel_U(from,to, text, desc) Rel_(from,to, text, desc, "-UP->")
+
+!define Rel_Up(from,to) Rel_U(from,to)
 !define Rel_Up(from,to, text) Rel_U(from,to, text)
 !define Rel_Up(from,to, text, desc) Rel_U(from,to, text, desc)
 
+!define Rel_L(from,to) Rel_(from,to, "-LEFT->")
 !define Rel_L(from,to, text) Rel_(from,to, text, "-LEFT->")
 !define Rel_L(from,to, text, desc) Rel_(from,to, text, desc, "-LEFT->")
+
+!define Rel_Left(from,to) Rel_L(from,to)
 !define Rel_Left(from,to, text) Rel_L(from,to, text)
 !define Rel_Left(from,to, text, desc) Rel_L(from,to, text, desc)
 
+!define Rel_R(from,to) Rel_(from,to, "-RIGHT->")
 !define Rel_R(from,to, text) Rel_(from,to, text, "-RIGHT->")
 !define Rel_R(from,to, text, desc) Rel_(from,to, text, desc, "-RIGHT->")
+
+!define Rel_Right(from,to) Rel_R(from,to)
 !define Rel_Right(from,to, text) Rel_R(from,to, text)
 !define Rel_Right(from,to, text, desc) Rel_R(from,to, text, desc)
 
 ' Layout Helpers
 ' ##################################
 
-!define Lay_D(from, to) from -[hidden]D- to
-!define Lay_U(from, to) from -[hidden]U- to
-!define Lay_R(from, to) from -[hidden]R- to
-!define Lay_L(from, to) from -[hidden]L- to
+!define Hide_D(from, to) from -[hidden]D- to
+!define Hide_U(from, to) from -[hidden]U- to
+!define Hide_R(from, to) from -[hidden]R- to
+!define Hide_L(from, to) from -[hidden]L- to
 
 ' If imitation
 ' ##################################
@@ -205,4 +222,14 @@ Rel_(x,name,label1, "-->")
 Rel_(y,name,label2, "-->")
 Rel_(z,name,label3, "-->")
 Rel_(w,name,label4, "-->")
+!enddefinelong
+
+' PLSQL adoptation
+' ##################################
+
+'system element
+!definelong plsql_system_gp(gp_id, gp_title, system_id, system_label)
+Group(gp_id, gp_title){
+    system(system_id, system_label)
+}
 !enddefinelong
