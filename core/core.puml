@@ -1,11 +1,11 @@
-'C4 PlantUml, version 0.0.1
+'C4 ATC puml, version 0.0.1
 'https://github.com/Impassive/C4_puml.git
 
 ' Element font colour
 ' ##################################
 
 !define ELEMENT_FONT_COLOUR White
-
+!define ARROW_COLOUR Navy
 ' Relationship description
 ' ##################################
 !define DESC_FONT_SIZE 12
@@ -26,9 +26,9 @@ skinparam Diamond {
 skinparam usecase {
     StereotypeFontSize 12
     shadowing false
-    FontColor DarkSlateGray
-    BorderColor DarkSlateGray
-    BackgroundColor LightBlue
+    FontColor Navy
+    BorderColor Navy
+    BackgroundColor White
 }
 
 skinparam Activity {
@@ -47,7 +47,7 @@ skinparam database {
 }
 
 skinparam Arrow {
-    Color Black
+    Color ARROW_COLOUR
     FontColor SlateGray
     FontSize 12
 }

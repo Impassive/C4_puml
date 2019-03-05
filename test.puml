@@ -3,15 +3,17 @@
 'ORTHO
 TD
 STEREOTYPE_HIDE
+Group(g1, "group title") {
     system(c1, system1,text,desc)
     system(c2, system2,text,desc)
     system(c3, system3,text,desc)
     system(c4, system4,text,desc)
     system(c5, system5,text,desc)
     system(c6, system6,text,desc)
+    ifRel2(u1,c1,c2,c3)
+    ifClose2to(c4,c2,c3)
+}
 
-usecase "X" as u1
-Rel(c1,u1," ")
-Rel(u1,c2," ")
-Rel(u1,c3," ")
+' ifRel2(u3,c4,c5,c6)
+
 @enduml
