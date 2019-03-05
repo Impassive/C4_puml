@@ -56,3 +56,13 @@ skinparam database<<database>> {
 !define database(x, label) database "==label" <<database>> as x
 !define database(x, label, text) database "==label\n\n text" <<database>> as x
 !define database(x, label, text, desc) database "==label\n//<size:DESC_FONT_SIZE>[desc]</size>//\n\n text" <<database>> as x
+
+
+' PLSQL adoptation
+' ##################################
+'system element
+!definelong plsql_system_gp(gp_id, gp_title, system_id, system_label)
+Group(gp_id, gp_title){
+    system(system_id, system_label)
+}
+!enddefinelong
